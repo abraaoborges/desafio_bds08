@@ -10,8 +10,10 @@ type FormData = {
 };
 
 type Address = {
-  logradouro: string;
-  localidade: string;
+  url: string;
+  followers: string;
+  location: string;
+  name: string;
 };
 
 const CepSearch = () => {
@@ -31,7 +33,7 @@ const CepSearch = () => {
     event.preventDefault();
 
     axios
-      .get(`https://viacep.com.br/ws/${formData.cep}/json/`)
+      .get(`https://api.github.com/users/${formData.cep}`)
       .then((response) => {
         setAddress(response.data);
       })
@@ -43,30 +45,37 @@ const CepSearch = () => {
 
   return (
     <div className="cep-search-container">
-      <h1 className="text-primary">Busca CEP</h1>
-      <div className="container search-container">
+      <div className="search-container">
+        <h1 className="title">Encontre um perfil no Github</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-container">
             <input
               type="text"
               name="cep"
               className="search-input"
-              placeholder="CEP (somente números)"
+              placeholder="Usuário Github"
               value={formData.cep}
               onChange={handleChange}
             />
             <button type="submit" className="btn btn-primary search-button">
-              Buscar
+              Encontrar
             </button>
           </div>
         </form>
+      </div>
 
-        {address &&
-          <>
-            <ResultCard title="Logradouro" description={address.logradouro} />
-            <ResultCard title="Localidade" description={address.localidade} />
-          </>
-        }
+      <div className="result-container-github">
+        <div className="result-container-github-data">
+          <h2 className="title-result">Informações</h2>
+          {address && (
+            <>
+              <ResultCard title="Perfil:" description={address.url} />
+              <ResultCard title="Seguidores:" description={address.followers} />
+              <ResultCard title="Localidade:" description={address.location} />
+              <ResultCard title="Nome:" description={address.name} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,22 +1,25 @@
 .result-container {
     background-color: #fff;
-    width: 100%;
-    border-radius: 5px;
+    width: 98%;
+    border-radius: 4px;
     padding: 10px;
+    margin: 5px 16px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 10px;
+    border: 1px solid #D9D9D9;
 }
 
 .result-title {
   color: #515151;
   font-size: 16px;
   font-weight: bold;
+  padding-right: 4px;
+  margin: 0;
 }
 
 .result-description {
   color: #515151;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
 }

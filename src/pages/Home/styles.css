@@ -4,4 +4,11 @@
 
 .start-button {
     color: #fff;
+    background-color: #1890FF;
+}
+
+.subtitle{
+    color: #7E7E7E;
+    margin-bottom: 27px;
+
 }
