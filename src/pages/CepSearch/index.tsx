@@ -14,6 +14,7 @@ type Address = {
   followers: string;
   location: string;
   name: string;
+  avatar_url: string;
 };
 
 const CepSearch = () => {
@@ -63,20 +64,24 @@ const CepSearch = () => {
           </div>
         </form>
       </div>
+      {address && (
+        <>
+          <div className="result-container-github">
+            <div className="result-container-github-image">
+              <img src={address.avatar_url} alt="" />
+            </div>
 
-      <div className="result-container-github">
-        <div className="result-container-github-data">
-          <h2 className="title-result">Informações</h2>
-          {address && (
-            <>
+            <div className="result-container-github-data">
+              <h2 className="title-result">Informações</h2>
+
               <ResultCard title="Perfil:" description={address.url} />
               <ResultCard title="Seguidores:" description={address.followers} />
               <ResultCard title="Localidade:" description={address.location} />
               <ResultCard title="Nome:" description={address.name} />
-            </>
-          )}
-        </div>
-      </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -27,7 +27,7 @@
 
 .result-container-github{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   padding: 35px;
   margin: 54px 0px;
@@ -40,11 +40,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
+  padding-right: 30px;
   margin: 8px 0px;
   background-color: #FFFFFF;
   border-radius: 6px;
   width: 100%;
+}
+
+.result-container-github-image{
+  margin-right: 29px;
+}
+
+.result-container-github-image img{
+  width: 247px;
+  height: 247px;
 }
 
 .form-container {
@@ -92,8 +101,15 @@
 
 
 
-@media (min-width: 576px) {
-    .search-input {
-        width: 480px;
+@media (max-width: 992px) {
+
+
+    .result-container-github{
+      flex-direction: column;
+    }
+
+    .result-container-github-image{
+      align-content: center;
+      margin-bottom: 29px;
     }
 }
